@@ -1,19 +1,43 @@
 import random
 
 def play():
-    user = input("Pick a weapon: 'r' for Rock, 'p' for paper, 's' for scissors")
-    computer = random.choice(['r','p','s'])
+    possible_action = ['R', 'P', 'S']
+    computer = random.choice(possible_action)
+    player = input("Pick a weapon: 'R' for Rock, 'P' for paper, 'S' for scissors ").capitalize()
 
-    if user == computer:
-        return 'IT\'s a tie'
-    # r > s, s > p, p > r
-    if win(user, computer):
-        return 'WINNER!!'
-    else:
-        return 'LOSER!!'    
+    while player not in possible_action:
+        player = input('''Try again: Pick a weapon 'R' for rock, 'P' for paper, 'S' for scissors ''').capitalize()
 
-def win(player, opponent):
-    if (player== 'r' and opponent == 's') or (player == 's' and opponent == 'p') or (player == 'p' and opponent =='r'):
-        return 'True'
+    if player == computer:    
+       print(f'player ({player}) : CPU ({computer})')
+       print('Its a tie')
+       return play()
+    #r > s, s > p, p > r
+    elif player == "R": 
+        if computer == "P":
+           print(f'player ({player}) : CPU ({computer})')
+           print("LOSER!") 
+        if computer == "S":
+            print("WINNER!")
+    elif player == "S":
+        if computer == "R":
+            print(f'player ({player}) : CPU ({computer})')
+            print("LOSER!")
+        if computer == "P":
+            print(f'player ({player}) : CPU ({computer})')
+            print("WINNER!")        
 
-print(play())
+    elif player == "P":
+        if computer == "S":
+            print(f'player ({player}) : CPU ({computer})')
+            print("LOSER!") 
+        if computer == "R":
+            print(f'player ({player}) : CPU ({computer})')
+            print("WINNER!")
+play()
+
+
+
+           
+
+  
