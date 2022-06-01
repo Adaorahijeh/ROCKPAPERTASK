@@ -3,7 +3,7 @@ A ROCK, PAPER, SCISSORS GAME WITH PYTHON
 
 AVALIABLE SCRIPT
 
-rockpapertask.py
+main.py
 
 in the game projest directory you can input: Rock; Paper; scissors.
 
